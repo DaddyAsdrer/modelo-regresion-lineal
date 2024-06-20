@@ -51,8 +51,3 @@ while True:
     elif dec == 'Gra' or dec == 'Graficar':
         modelo.graficar()
         print('\n')
-    
-    
-    
-
-    
