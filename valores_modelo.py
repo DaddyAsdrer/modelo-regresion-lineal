@@ -1,5 +1,7 @@
 import os
 import pickle as pkl
+import matplotlib.pyplot as plt
+import pandas as pd
 
 class Modelo():
     def __init__(self):
