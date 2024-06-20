@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 import pickle as pkl
 import matplotlib.pyplot as plt
 
@@ -37,14 +38,16 @@ class Modelo():
     
 regre_modelo = Modelo()
 
-modelo = pkl.load(open('regre_modelo.pkl','rb'))
+directorio = os.path.dirname(os.path.abspath(__file__))
+direccion_modelo = os.path.join(directorio,'regre_modelo.pkl')
+modelo = pkl.load(open(direccion_modelo,'rb'))
 while True:
     dec = input('"Exit" para salir...\nQue deseas hacer?: ').capitalize()
     if dec == 'Exit' or dec == 'Clear' or dec == 'Salir':
         break
     elif dec == 'Entrenamiento' or dec == 'Entre':
         regre_modelo.entrenamiento()
-        pkl.dump(regre_modelo, open('regre_modelo.pkl','wb'))
+        pkl.dump(regre_modelo, open(direccion_modelo,'wb'))
         print('\n')
     elif dec == 'Predecir' or dec == 'Pre':
         print(f'La esperanza de vida es de: {round(modelo.predecir(float(input('\nIntroduzca un IDH: '))),2)}\n')
